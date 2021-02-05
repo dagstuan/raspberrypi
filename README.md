@@ -10,7 +10,9 @@
 
 `sudo reboot`
 
-docker run hello-world
+*etter reboot*
+
+`docker run hello-world`
 
 ## På lokal maskin
 
