@@ -29,3 +29,22 @@ sudo pip3 install docker-compose
 ## På lokal maskin
 
 gå inn i en av mappene. Kjør `DOCKER_HOST=ssh://pi@[hostname_til_rpi] docker-compose up -d`
+
+# HTTPS
+
+https://certbot.eff.org
+
+sudo certbot certonly \
+  --dns-cloudflare \
+  --dns-cloudflare-credentials [path/to/secrets.ini] \
+  -d dagstuan.com,*.dagstuan.com\
+  --preferred-challenges dns-01\
+  --deploy-hook "cp -uL /etc/letsencrypt/live/dagstuan.com/* /usr/share/hassio/ssl/ && docker restart homeassistant"
+
+hassio `configuration.yml`:
+
+```
+http:
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+  ```
