@@ -30,6 +30,24 @@ sudo pip3 install docker-compose
 
 gå inn i en av mappene. Kjør `DOCKER_HOST=ssh://pi@[hostname_til_rpi] docker-compose up -d`
 
+# Dynamic DNS
+
+`/etc/ddclient.conf`:
+
+````
+#daemon=1800
+syslog=yes
+ssl=yes
+
+use=web, web=dynamicdns.park-your-domain.com/getip
+protocol=cloudflare
+zone=dagstuan.com
+login=[email]
+password=[cloudflare-master-api-key]
+home
+```
+
+
 # HTTPS
 
 https://certbot.eff.org
