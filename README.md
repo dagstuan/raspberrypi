@@ -34,7 +34,7 @@ gå inn i en av mappene. Kjør `DOCKER_HOST=ssh://pi@[hostname_til_rpi] docker-c
 
 `/etc/ddclient.conf`:
 
-````
+```
 #daemon=1800
 syslog=yes
 ssl=yes
@@ -65,4 +65,4 @@ hassio `configuration.yml`:
 http:
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
-  ```
+```
