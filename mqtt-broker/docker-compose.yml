@@ -1,0 +1,10 @@
+version: "3"
+services:
+  homeassistant:
+    container_name: mqtt-broker
+    image: "eclipse-mosquitto:latest"
+    ports:
+      - "1883:1883"
+    volumes:
+      - /home/pi/mosquitto:/mosquitto/config
+    restart: unless-stopped
