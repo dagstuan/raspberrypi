@@ -32,6 +32,8 @@ gå inn i en av mappene. Kjør `DOCKER_HOST=ssh://pi@[hostname_til_rpi] docker-c
 
 # Dynamic DNS
 
+`sudo apt-get install ddclient`
+
 `/etc/ddclient.conf`:
 
 ```
@@ -44,20 +46,21 @@ protocol=cloudflare
 zone=dagstuan.com
 login=[email]
 password=[cloudflare-master-api-key]
-home
+home.dagstuan.com
 ```
-
 
 # HTTPS
 
 https://certbot.eff.org
 
+`sudo pip3 install certbot-dns-cloudflare`
+
 sudo certbot certonly \
   --dns-cloudflare \
-  --dns-cloudflare-credentials [path/to/secrets.ini] \
+  --dns-cloudflare-credentials [path/to/certbot_secrets.ini] \
   -d dagstuan.com,*.dagstuan.com\
   --preferred-challenges dns-01\
-  --deploy-hook "cp -uL /etc/letsencrypt/live/dagstuan.com/* /usr/share/hassio/ssl/ && docker restart homeassistant"
+  --deploy-hook "cp -uL /etc/letsencrypt/live/dagstuan.com/* /home/pi/homeassistant/ssl/ && docker restart homeassistant"
 
 hassio `configuration.yml`:
 

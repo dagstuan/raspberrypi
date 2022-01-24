@@ -1,6 +1,6 @@
 version: "3"
 services:
-  homeassistant:
+  mqtt-broker:
     container_name: mqtt-broker
     image: "eclipse-mosquitto:latest"
     ports:

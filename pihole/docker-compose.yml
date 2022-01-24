@@ -10,19 +10,17 @@ services:
       - "53:53/udp"
       - "67:67/udp"
       - "80:80/tcp"
-      - "443:443/tcp"
-
     environment:
-      TZ: 'Europe/Oslo' # Put your own timezone here.
+      TZ: "Europe/Oslo" # Put your own timezone here.
       #WEBPASSWORD: 'pw' # Put a strong password here.
 
     # We'll use host networking simply because it is way easier to setup.
-    network_mode: host
+    # network_mode: host
 
     # Volumes store your data between container upgrades
     volumes:
-      - '/home/pi/etc-pihole/:/etc/pihole/'
-      - '/home/pi/etc-dnsmasq.d/:/etc/dnsmasq.d/'
+      - "/home/pi/etc-pihole/:/etc/pihole/"
+      - "/home/pi/etc-dnsmasq.d/:/etc/dnsmasq.d/"
 
     # Required for the DHCP server
     cap_add:
