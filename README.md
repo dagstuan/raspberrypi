@@ -49,6 +49,18 @@ password=[cloudflare-master-api-key]
 home.dagstuan.com
 ```
 
+## For å se status
+
+```
+sudo service ddclient status
+```
+
+## For å tvinge oppdatering
+
+```sh
+sudo ddclient -daemon=0 -debug -verbose -noquiet
+```
+
 # HTTPS
 
 https://certbot.eff.org
