@@ -1,0 +1,24 @@
+version: "2.1"
+services:
+  wireguard:
+    container_name: wireguard
+    image: linuxserver/wireguard:latest
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    environment:
+      - PUID=1001
+      - PGID=100
+      - TZ=Europe/London
+      - SERVERURL=auto
+      - SERVERPORT=51820
+      - PEERS=iphone,macbookpro #change to match how many devies you want to use Wireguard on
+      - PEERDNS=auto
+      - INTERNAL_SUBNET=10.13.13.0 #optional
+      - ALLOWEDIPS=0.0.0.0/0 #optional
+    volumes:
+      - /home/pi/wireguard/config:/config
+      - /lib/modules:/lib/modules #do not change
+    ports:
+      - 51820:51820/udp
