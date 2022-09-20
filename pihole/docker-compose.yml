@@ -1,4 +1,4 @@
-version: "3"
+version: "3.8"
 services:
   pihole:
     container_name: pihole
@@ -8,7 +8,7 @@ services:
       - "53:53/tcp"
       - "53:53/udp"
       - "67:67/udp"
-      - "80:80/tcp"
+      - "8080:80/tcp"
     environment:
       TZ: "Europe/Oslo" # Put your own timezone here.
       #WEBPASSWORD: 'pw' # Put a strong password here.
@@ -18,8 +18,8 @@ services:
 
     # Volumes store your data between container upgrades
     volumes:
-      - "/home/pi/etc-pihole/:/etc/pihole/"
-      - "/home/pi/etc-dnsmasq.d/:/etc/dnsmasq.d/"
+      - "/home/pi/docker/pihole/etc-pihole/:/etc/pihole/"
+      - "/home/pi/docker/pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/"
 
     # Required for the DHCP server
     cap_add:

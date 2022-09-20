@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+  nexa-controller:
+    container_name: nexa-controller
+    image: ghcr.io/dagstuan/nexa-controller:latest
+    privileged: true
+    environment:
+      - GPIO_PIN=17
+      - REPEATS=6
+      - REMOTE_ID=${NEXA_REMOTE_ID}
+      - MQTT_HOST=192.168.1.27
+      - MQTT_PORT=1883
+      - MQTT_USERNAME=${NEXA_MQTT_USERNAME}
+      - MQTT_PASSWORD=${NEXA_MQTT_PASSWORD}
+    restart: unless-stopped

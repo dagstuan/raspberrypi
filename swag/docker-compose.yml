@@ -1,0 +1,22 @@
+version: "2.1"
+services:
+  swag:
+    image: lscr.io/linuxserver/swag:latest
+    container_name: swag
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - PUID=1028
+      - PGID=100
+      - TZ=Europe/Oslo
+      - URL=${SWAG_URL}
+      - VALIDATION=dns
+      - SUBDOMAINS=wildcard
+      - DNSPLUGIN=cloudflare
+      - EMAIL=${SWAG_EMAIL}
+    volumes:
+      - /home/pi/docker/swag:/config
+    ports:
+      - 443:443
+      - 80:80 #optional
+    restart: unless-stopped

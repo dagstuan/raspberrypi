@@ -1,0 +1,43 @@
+version: '3.9'
+services:
+  wg-easy:
+    extends:
+      service: wg-easy
+      file: wg-easy/docker-compose.yml
+    networks:
+      pi:
+        ipv4_address: 10.8.1.2
+  pihole:
+    extends:
+      service: pihole
+      file: pihole/docker-compose.yml
+    networks:
+      pi:
+        ipv4_address: 10.8.1.3
+  swag:
+    extends:
+      service: swag
+      file: swag/docker-compose.yml
+    networks:
+      pi:
+        ipv4_address: 10.8.1.4
+  watchtower:
+    extends:
+      service: watchtower
+      file: watchtower/docker-compose.yml
+    networks:
+      pi:
+        ipv4_address: 10.8.1.5
+  nexa-controller:
+    extends:
+      service: nexa-controller
+      file: nexa-controller/docker-compose.yml
+    networks:
+      pi:
+        ipv4_address: 10.8.1.6
+
+networks:
+  pi:
+    ipam:
+      config:
+        - subnet: 10.8.1.0/24
