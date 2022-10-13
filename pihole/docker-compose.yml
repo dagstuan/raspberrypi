@@ -8,15 +8,9 @@ services:
       - "53:53/tcp"
       - "53:53/udp"
       - "67:67/udp"
-      - "8080:80/tcp"
     environment:
-      TZ: "Europe/Oslo" # Put your own timezone here.
-      #WEBPASSWORD: 'pw' # Put a strong password here.
+      TZ: "Europe/Oslo"
 
-    # We'll use host networking simply because it is way easier to setup.
-    # network_mode: host
-
-    # Volumes store your data between container upgrades
     volumes:
       - "/home/pi/docker/pihole/etc-pihole/:/etc/pihole/"
       - "/home/pi/docker/pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/"

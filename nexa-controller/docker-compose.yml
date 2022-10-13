@@ -8,7 +8,7 @@ services:
       - GPIO_PIN=17
       - REPEATS=6
       - REMOTE_ID=${NEXA_REMOTE_ID}
-      - MQTT_HOST=192.168.1.27
+      - MQTT_HOST=mqtt
       - MQTT_PORT=1883
       - MQTT_USERNAME=${NEXA_MQTT_USERNAME}
       - MQTT_PASSWORD=${NEXA_MQTT_PASSWORD}
