@@ -6,8 +6,8 @@ services:
     cap_add:
       - NET_ADMIN
     environment:
-      - PUID=1028
-      - PGID=100
+      - PUID=1000
+      - PGID=1000
       - TZ=Europe/Oslo
       - URL=${SWAG_URL}
       - VALIDATION=dns
