@@ -35,6 +35,13 @@ services:
     networks:
       pi:
         ipv4_address: 10.8.1.6
+  zigbee2mqtt:
+    extends:
+      service: zigbee2mqtt
+      file: zigbee2mqtt/docker-compose.yml
+    networks:
+      pi:
+        ipv4_address: 10.8.1.7
 
 networks:
   pi:
